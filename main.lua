@@ -1,5 +1,4 @@
 -- Full Aimbot + ESP LocalScript
--- Recoded by Viola
 -- Combines your original aimbot GUI + fixed toggle behavior + ESP + Team ESP + Aim part selector (Head/Torso/Random)
 
 local Players = game:GetService("Players")
@@ -19,8 +18,8 @@ local aimbotMode = "Hold"        -- "Hold" or "Toggle"
 local activationKey = Enum.UserInputType.MouseButton2 -- default Right Click
 
 -- ESP Settings
-local espEnabled = false
-local teamEspEnabled = false
+local espEnabled = true
+local teamEspEnabled = true
 local defaultESPColor = Color3.fromRGB(255,255,255)
 
 -- Runtime Vars
@@ -32,13 +31,13 @@ local aimCandidates = {"Head", "Torso"} -- used for Random
 
 --// Create Circle
 local circle = Drawing.new("Circle")
-circle.Thickness = 1.5
+circle.Thickness = 1.25
 circle.NumSides = 64
 circle.Radius = circleRadius
-circle.Color = Color3.fromRGB(0, 255, 255)
+circle.Color = Color3.fromRGB(255, 0, 255)
 circle.Filled = false
 circle.Visible = true
-circle.Transparency = 0.8
+circle.Transparency = 0.75
 
 --// Create UI
 local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
@@ -54,7 +53,7 @@ Frame.Visible = true
 Frame.BorderSizePixel = 0
 
 local Title = Instance.new("TextLabel", Frame)
-Title.Text = "Aimbot Settings"
+Title.Text = "SimpleGui"
 Title.Size = UDim2.new(1, 0, 0, 30)
 Title.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -546,5 +545,6 @@ end)
 
 -- Ensure ESP cleans up if we toggle off later
 -- (already handled in espButton)
+
 
 -- End of script
